@@ -12,7 +12,7 @@
 		"autofix": "biome format . --write && biome check . --apply"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.2.2",
+		"@biomejs/biome": "^1.2.2-nightly.1e3fc94",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",

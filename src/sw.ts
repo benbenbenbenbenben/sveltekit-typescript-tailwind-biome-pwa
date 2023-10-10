@@ -13,6 +13,12 @@ import {
 import type { StrategyHandler } from "workbox-strategies";
 import { NetworkFirst, NetworkOnly, Strategy } from "workbox-strategies";
 
+declare global {
+	interface ServiceWorkerGlobalScope {
+	  __WB_MANIFEST: ManifestEntry[];
+	}
+  }
+
 // Give TypeScript the correct global.
 declare let self: ServiceWorkerGlobalScope;
 declare type ExtendableEvent = any;
@@ -20,7 +26,7 @@ declare type ExtendableEvent = any;
 const data = {
 	race: false,
 	debug: false,
-	credentials: "same-origin",
+	credentials: "same-origin" as RequestCredentials,
 	networkTimeoutSeconds: 0,
 	fallback: "index.html",
 };
@@ -80,7 +86,7 @@ const manifestURLs = manifest.map((entry) => {
 	const url = new URL(entry.url, self.location);
 	cacheEntries.push(
 		new Request(url.href, {
-			credentials: data.credentials as any,
+			credentials: data.credentials,
 		}),
 	);
 	return url.href;
