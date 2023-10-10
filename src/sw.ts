@@ -82,7 +82,7 @@ const manifest = self.__WB_MANIFEST as Array<ManifestEntry>;
 const cacheEntries: RequestInfo[] = [];
 
 const manifestURLs = manifest.map((entry) => {
-	const url = new URL(entry.url, self.location);
+	const url = new URL(entry.url, self.location.toString());
 	cacheEntries.push(
 		new Request(url.href, {
 			credentials: data.credentials,
@@ -131,8 +131,8 @@ registerRoute(({ url }) => manifestURLs.includes(url.href), buildStrategy());
 setDefaultHandler(new NetworkOnly());
 
 // fallback to app-shell for document request
-setCatchHandler(({ event }): Promise<Response> => {
-	switch (event.request.destination) {
+setCatchHandler(({ request }): Promise<Response> => {
+	switch (request.destination) {
 		case "document":
 			return caches.match(data.fallback).then((r) => {
 				return r ? Promise.resolve(r) : Promise.resolve(Response.error());
