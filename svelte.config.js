@@ -1,5 +1,5 @@
-import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import adapter from "@sveltejs/adapter-static";
+import { vitePreprocess } from "@sveltejs/kit/vite";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,12 +13,12 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
 		files: {
-			serviceWorker: 'src/sw.ts'
+			serviceWorker: "src/sw.ts",
 		},
 		serviceWorker: {
-			register: false
-		}
-	}
+			register: false,
+		},
+	},
 };
 
 export default config;

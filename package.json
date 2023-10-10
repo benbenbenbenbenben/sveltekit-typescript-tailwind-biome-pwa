@@ -8,14 +8,17 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"test": "vitest"
+		"test": "vitest",
+		"autofix": "biome format . --write && biome check . --apply"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.2.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
 		"@vite-pwa/sveltekit": "^0.2.7",
 		"autoprefixer": "^10.4.16",
+		"kolorist": "^1.8.0",
 		"postcss": "^8.4.31",
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
