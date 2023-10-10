@@ -9,7 +9,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
-		"autofix": "biome format . --write && biome check . --apply"
+		"autofix": "biome format src/ --write && biome check src/ --apply"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.2.2-nightly.1e3fc94",
