@@ -15,13 +15,12 @@ import { NetworkFirst, NetworkOnly, Strategy } from "workbox-strategies";
 
 declare global {
 	interface ServiceWorkerGlobalScope {
-	  __WB_MANIFEST: ManifestEntry[];
+		__WB_MANIFEST: ManifestEntry[];
 	}
-  }
+}
 
 // Give TypeScript the correct global.
 declare let self: ServiceWorkerGlobalScope;
-declare type ExtendableEvent = any;
 
 const data = {
 	race: false,
